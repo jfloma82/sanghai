@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>상하이·항저우·우전 가족 여행 일정 (인쇄용 A4)</title>
+<style>
+/* ===== 인쇄용 A4 · 흰 배경 · 큰 글씨 · 핵심만 =====
+   인쇄 방법: 브라우저 인쇄(⌘P / Ctrl+P) → 용지 A4 세로 → 여백 '기본'.
+   색 테두리·강조색은 배경그래픽 설정과 무관하게 인쇄됩니다.        */
+
+:root{
+  --ink:#1a1a1a;
+  --sub:#555;
+  --line:#cfcfcf;
+  --accent:#c8461f;   /* 강조(주황) */
+  --hz:#3f7d4e;        /* 항저우 초록 */
+  --wz:#2f6d95;        /* 우전 파랑 */
+  --sh:#c8461f;        /* 상하이 주황 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  color:var(--ink);line-height:1.55;background:#e9e9e9;
+  font-size:14pt;
+}
+
+/* 화면에서는 페이지를 카드처럼, 인쇄에서는 A4 한 장씩 */
+.page{
+  width:210mm;min-height:297mm;background:#fff;margin:10mm auto;
+  padding:16mm 15mm;position:relative;
+}
+@media print{
+  body{background:#fff}
+  .page{width:auto;min-height:auto;margin:0;padding:0;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  .noprint{display:none !important}
+}
+
+/* ---- 공통 요소 ---- */
+.kicker{font-size:11pt;letter-spacing:.15em;color:var(--sub);text-transform:uppercase;margin-bottom:6mm}
+.daytag{display:inline-block;font-size:11pt;font-weight:700;padding:2px 10px;border:2px solid var(--accent);color:var(--accent);border-radius:3px;margin-bottom:4mm}
+.daytag.hz{border-color:var(--hz);color:var(--hz)}
+.daytag.wz{border-color:var(--wz);color:var(--wz)}
+.daytag.sh{border-color:var(--sh);color:var(--sh)}
+
+h1{font-size:34pt;line-height:1.1;letter-spacing:-.01em;margin-bottom:5mm}
+h1 small{display:block;font-size:13pt;color:var(--sub);font-weight:600;letter-spacing:.05em;margin-top:3mm}
+h2{font-size:24pt;line-height:1.15;margin-bottom:2mm}
+h2 .d{font-size:13pt;color:var(--sub);font-weight:600}
+.sectitle{font-size:13pt;font-weight:800;color:var(--accent);letter-spacing:.06em;margin:6mm 0 3mm;padding-bottom:2mm;border-bottom:2px solid var(--accent)}
+
+/* 개요 표 */
+.facts{width:100%;border-collapse:collapse;margin-bottom:5mm;font-size:13.5pt}
+.facts th,.facts td{text-align:left;padding:3.2mm 3mm;border-bottom:1px solid var(--line);vertical-align:top}
+.facts th{width:34mm;color:var(--sub);font-weight:700;white-space:nowrap}
+.facts td b{font-weight:800}
+
+.box{border:2px solid var(--line);border-left:5px solid var(--accent);border-radius:4px;padding:4mm 5mm;margin-bottom:5mm}
+.box.hz{border-left-color:var(--hz)}
+.box.wz{border-left-color:var(--wz)}
+.box.sh{border-left-color:var(--sh)}
+.box .t{font-size:14pt;font-weight:800;margin-bottom:1.5mm}
+.box .s{font-size:12.5pt;color:var(--sub);line-height:1.5}
+
+/* 타임라인 */
+.tl{width:100%;border-collapse:collapse;margin-top:2mm}
+.tl tr{border-bottom:1px solid var(--line)}
+.tl tr:last-child{border-bottom:none}
+.tl td{padding:3.6mm 2mm;vertical-align:top}
+.tl .time{width:26mm;font-size:12.5pt;font-weight:800;color:var(--accent);white-space:nowrap;line-height:1.3}
+.tl .body .p{font-size:15pt;font-weight:800;line-height:1.25}
+.tl .body .p .star{color:var(--accent);font-weight:800}
+.tl .body .n{font-size:12.5pt;color:var(--sub);margin-top:1mm;line-height:1.45}
+.tl .body .n b{color:var(--ink);font-weight:700}
+.warn{color:var(--accent);font-weight:800}
+
+/* 요약 리스트 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm 8mm}
+.card{border:2px solid var(--line);border-radius:4px;padding:4mm 5mm}
+.card h3{font-size:13pt;color:var(--accent);letter-spacing:.04em;margin-bottom:2.5mm}
+.card ul{list-style:none}
+.card li{font-size:12.5pt;padding:2mm 0;border-bottom:1px dotted var(--line);line-height:1.4}
+.card li:last-child{border-bottom:none}
+.card li b{font-weight:800}
+.chk li::before{content:"☐ ";font-weight:800;color:var(--accent)}
+
+.footer{position:absolute;bottom:10mm;left:15mm;right:15mm;font-size:10pt;color:#999;text-align:center;border-top:1px solid var(--line);padding-top:2mm}
+
+.hint{max-width:210mm;margin:6mm auto 0;font-size:12pt;color:#333;background:#fff8f2;border:1px solid #f0c9b4;border-radius:6px;padding:4mm 6mm}
+</style>
+</head>
+<body>
+
+<div class="hint noprint">
+  🖨️ <b>인쇄 방법</b> — 이 페이지에서 <b>⌘P (Mac) / Ctrl+P</b> → 용지 <b>A4 세로</b>, 여백 '기본'. 총 5장. 색 강조를 살리려면 인쇄 옵션에서 '배경 그래픽'을 켜세요(안 켜도 글자·테두리는 정상 인쇄).
+</div>
+
+<!-- ═══════════ PAGE 1 · 표지 & 개요 ═══════════ -->
+<section class="page">
+  <div class="kicker">上海 · 杭州 · 乌镇 · FAMILY TRIP</div>
+  <h1>상하이 · 항저우 · 우전<br/>가족 여행 일정
+    <small>2026. 09. 18(금) ~ 09. 21(월) · 3박 4일 · 4인 (부모님 2 + 40대 2)</small>
+  </h1>
+
+  <div class="sectitle">경로</div>
+  <div style="font-size:14pt;font-weight:700;line-height:1.9;margin-bottom:4mm">
+    청주(CJJ) ✈ 상하이 푸동 → 🚄 항저우 → 🚌 우전 → 🚌 상하이 → ✈ 청주
+  </div>
+
+  <div class="sectitle">항공 · 춘추항공(春秋航空 · Spring Airlines)</div>
+  <table class="facts">
+    <tr><th>국내연결</th><td>동대구 <b>08:52</b> → 오송 <b>09:51</b> (KTX-산천 370) → 청주공항</td></tr>
+    <tr><th>가는편 9C7050</th><td><b>9/18(금)</b> 청주 <b>12:05</b> → 상하이 푸동 <b>13:10</b></td></tr>
+    <tr><th>오는편 9C7049</th><td><b>9/21(월)</b> 상하이 푸동 <b>07:55</b> → 청주 <b>11:05</b></td></tr>
+  </table>
+
+  <div class="sectitle">고속철 · 예약 완료 ✅</div>
+  <table class="facts">
+    <tr><th>G1583</th><td><b>9/18(금)</b> 상하이 훙차오 <b>16:32</b> → 항저우동 <b>17:24</b> (52분) · 4인 <b>이등석 04호차</b> (004A·004B·005D·005F)</td></tr>
+  </table>
+
+  <div class="sectitle">숙소 (3박 · 모두 예약 완료)</div>
+  <div class="box hz"><div class="t">항저우 · 치위에 웨스트레이크 호텔</div><div class="s">9/18 → 럭셔리 패밀리 스위트 · 서호/뇌봉탑 방면</div></div>
+  <div class="box wz"><div class="t">우전 · Dockside Boutique Hotel</div><div class="s">9/19 → 패밀리 스위트 · 경관구(西栅) 내부 · 야경 자유 재입장</div></div>
+  <div class="box sh"><div class="t">상하이 · 푸이 호텔(PU) 다푸차오점</div><div class="s">9/20 → 듀플렉스 패밀리 스위트 · 신천지·티엔즈팡 근처 · 짐 보관 가능</div></div>
+
+  <div class="footer">상하이·항저우·우전 가족 여행 · 2026.09.18–09.21 · 1 / 5</div>
+</section>
+
+<!-- ═══════════ PAGE 2 · DAY 1 ═══════════ -->
+<section class="page">
+  <span class="daytag hz">DAY 1 · 9/18(금) · 杭州</span>
+  <h2>도착 · 항저우의 밤 <span class="d">청주 → 상하이 → 고속철 → 항저우</span></h2>
+
+  <table class="tl">
+    <tr><td class="time">12:05<br/>–13:10</td><td class="body">
+      <div class="p">청주 → 상하이 푸동공항 (9C7050)</div>
+      <div class="n">입국·짐 찾기 약 45분 → <b>14시경 공항 출발</b>. 알리페이·VPN·심카드 미리 준비.</div></td></tr>
+    <tr><td class="time">14:00<br/>–15:00</td><td class="body">
+      <div class="p">푸동 → 훙차오역 (Airport Link)</div>
+      <div class="n">공항 연결선으로 약 40분. 훙차오 기차역에서 고속철 환승.</div></td></tr>
+    <tr><td class="time">15:00<br/>–16:00</td><td class="body">
+      <div class="p">훙차오역 점심</div>
+      <div class="n">샤오롱바오·완탕 + Luckin Coffee. 열차 시간 맞춰 가볍게.</div></td></tr>
+    <tr><td class="time">16:32<br/>–17:24</td><td class="body">
+      <div class="p"><span class="star">★</span> 고속철 G1583 → 항저우동 ✅</div>
+      <div class="n"><b>예약완료</b> · 훙차오 16:32→항저우동 17:24(52분) · 4인 이등석 04호차(004A·004B·005D·005F) · 여권 실물 개찰. 도착 후 호텔까지 택시 20~30분.</div></td></tr>
+    <tr><td class="time">저녁<br/>초입</td><td class="body">
+      <div class="p">치위에 웨스트레이크 호텔 체크인</div>
+      <div class="n">짐 풀고 잠시 휴식 후 나섭니다.</div></td></tr>
+    <tr><td class="time">18:15<br/>~야경</td><td class="body">
+      <div class="p"><span class="star">★</span> 뇌봉탑(雷峰塔) 해질녘·야경</div>
+      <div class="n">서호 십경. 성수기 <b>08:00–20:00</b>이라 서두르지 않아도 OK · ¥40 · <b>엘리베이터</b>(70세↑ 무료). 피곤하면 내일로 미뤄도 됨.</div></td></tr>
+    <tr><td class="time">19:00<br/>–20:30</td><td class="body">
+      <div class="p"><span class="star">★</span> 저녁 · 카오장(烤匠)</div>
+      <div class="n">쓰촨 마라 구운생선. 현장 번호표(대기 김). <b>대안: 루위(炉鱼)</b>.</div></td></tr>
+    <tr><td class="time">밤</td><td class="body">
+      <div class="p">서호 야경 산책 · (선택) 우린 야시장 · 很久以前 양꼬치</div>
+      <div class="n">평지 산책. 부모님 컨디션 따라 야시장·야식은 생략 가능.</div></td></tr>
+  </table>
+
+  <div class="footer">DAY 1 · 항저우 · 2 / 5</div>
+</section>
+
+<!-- ═══════════ PAGE 3 · DAY 2 ═══════════ -->
+<section class="page">
+  <span class="daytag hz">DAY 2 · 9/19(토) · 杭州 → 乌镇</span>
+  <h2>서호와 차, 그리고 우전으로</h2>
+
+  <table class="tl">
+    <tr><td class="time">아침</td><td class="body">
+      <div class="p">서호(西湖) 아침 산책</div>
+      <div class="n">백제·소제, 단교. 사람 적은 시간, 평지라 편안. 가족 사진.</div></td></tr>
+    <tr><td class="time">10:00<br/>–11:30</td><td class="body">
+      <div class="p">허팡지에(河坊街) 옛 거리</div>
+      <div class="n">후칭위탕(한방박물관)·왕싱지(부채). 기념품·차 구경.</div></td></tr>
+    <tr><td class="time">12:00<br/>–13:15</td><td class="body">
+      <div class="p"><span class="star">★</span> 점심 · 녹차식당 본점(绿茶餐厅)</div>
+      <div class="n">灵隐路 플래그십(영은사 방면). 훈제통닭·불꽃새우. 4인 좌석 여유.</div></td></tr>
+    <tr><td class="time">14:00<br/>–16:00</td><td class="body">
+      <div class="p"><span class="star">★</span> 영은사(灵隐寺) + 비래봉(飞来峰)</div>
+      <div class="n"><span class="warn">⚠ 무료지만 위챗 '杭州灵隐飞来峰' 사전예약 필수</span> · 당일 불가·주말 조기매진 · 07:30–17:30. 일부 오르막.</div></td></tr>
+    <tr><td class="time">16:30<br/>–18:00</td><td class="body">
+      <div class="p">항저우 → 우전 이동</div>
+      <div class="n">전세 차량 약 1~1.5시간(짐·부모님 편의). 저녁 전 도착.</div></td></tr>
+    <tr><td class="time">저녁<br/>초입</td><td class="body">
+      <div class="p">Dockside 호텔 체크인 (패밀리 스위트)</div>
+      <div class="n">우전 경관구 안. 짐 두고 저녁·야경 산책으로.</div></td></tr>
+    <tr><td class="time">19:30<br/>–21:30</td><td class="body">
+      <div class="p"><span class="star">★</span> 우전 서책(西栅) 야경</div>
+      <div class="n">물의 마을 하이라이트. <b>경관구 숙박 = 자유 재입장</b>(야간 17:30–22:30).</div></td></tr>
+  </table>
+
+  <div class="footer">DAY 2 · 항저우 → 우전 · 3 / 5</div>
+</section>
+
+<!-- ═══════════ PAGE 4 · DAY 3 + DAY 4 ═══════════ -->
+<section class="page">
+  <span class="daytag sh">DAY 3 · 9/20(일) · 乌镇 → 上海</span>
+  <h2>우전 아침 · 상하이의 밤</h2>
+
+  <table class="tl">
+    <tr><td class="time">08:00<br/>–09:30</td><td class="body">
+      <div class="p"><span class="star">★</span> 우전 아침 산책</div>
+      <div class="n">관광객 오기 전, 물안개 낀 조용한 물길. 사진 베스트.</div></td></tr>
+    <tr><td class="time">10:00<br/>–11:45</td><td class="body">
+      <div class="p">우전 → 상하이 이동</div>
+      <div class="n">전세 차량 약 1.5시간. 호텔 앞까지 환승 없이.</div></td></tr>
+    <tr><td class="time">14:00</td><td class="body">
+      <div class="p">푸이 호텔(다푸차오) 체크인</div>
+      <div class="n">짐만 두고 바로 출발 — 티엔즈팡이 호텔 도보권.</div></td></tr>
+    <tr><td class="time">14:30<br/>–15:20</td><td class="body">
+      <div class="p"><span class="star">★</span> 티엔즈팡(田子坊)</div>
+      <div class="n">호텔 도보권. 석고문 골목 아트타운 — 갤러리·공방·기념품.</div></td></tr>
+    <tr><td class="time">15:40<br/>–16:40</td><td class="body">
+      <div class="p"><span class="star">★</span> 예원(豫园) · 성황묘(城隍庙)</div>
+      <div class="n">🚕 디디 15분. <span class="warn">⚠ 정원 16시 전 입장·월 휴무·실명 예약</span>. 난샹 샤오롱바오·골목.</div></td></tr>
+    <tr><td class="time">17:00<br/>–18:20</td><td class="body">
+      <div class="p"><span class="star">★</span> 푸동미술관(浦东美术馆·MAP)</div>
+      <div class="n">🚕 디디 10분. 장 누벨 설계·강변 뷰. 매일 10:00–21:00. 관람 후 도보 5분.</div></td></tr>
+    <tr><td class="time">18:30<br/>–20:00</td><td class="body">
+      <div class="p"><span class="star">★</span> 저녁 · 晟永兴 베이징덕</div>
+      <div class="n"><b>미슐랭 1스타</b> 오리구이. 루자쭈이. <span class="warn">전화 사전예약 필수</span>.</div></td></tr>
+    <tr><td class="time">20:00<br/>–20:40</td><td class="body">
+      <div class="p"><span class="star">★</span> 루자쭈이(陆家嘴) 야경</div>
+      <div class="n">푸동 스카이라인. 평지 산책, 여행 마지막 사진.</div></td></tr>
+    <tr><td class="time">21:00<br/>–22:00</td><td class="body">
+      <div class="p">일월광센터 · 허마(盒马) 쇼핑</div>
+      <div class="n">🚕 디디 15분(호텔 근처). 과일·간식·기념품. 알리페이 결제 → 호텔 복귀.</div></td></tr>
+  </table>
+
+  <div style="height:6mm"></div>
+  <span class="daytag sh">DAY 4 · 9/21(월) · 귀국</span>
+  <div class="box"><div class="t warn">⚠ 05:00 호텔 출발 → 푸동공항 → 07:55 귀국</div>
+    <div class="s">9C7049 <b>07:55</b> 푸동 → 청주 <b>11:05</b> 도착. 이른 비행 — <b>짐·체크아웃·차량은 전날 밤 준비</b>. 새벽 차량 전날 예약(다푸차오→공항 약 50~60분).</div></div>
+
+  <div class="footer">DAY 3 상하이 · DAY 4 귀국 · 4 / 5</div>
+</section>
+
+<!-- ═══════════ PAGE 5 · 요약 ═══════════ -->
+<section class="page">
+  <div class="kicker">SUMMARY · 요약 & 준비</div>
+  <h2>맛집 · 예약 · 준비물</h2>
+
+  <div class="sectitle">맛집 5</div>
+  <table class="facts">
+    <tr><th>Day1 저녁</th><td><b>카오장(烤匠)</b> 마라 구운생선 · 대안 <b>루위(炉鱼)</b></td></tr>
+    <tr><th>Day2 점심</th><td><b>녹차식당 본점(绿茶餐厅)</b> 灵隐路 · 훈제통닭</td></tr>
+    <tr><th>Day1 야식</th><td><b>很久以前羊肉串</b> 양꼬치 (가볍게)</td></tr>
+    <tr><th>Day3 저녁</th><td><b>晟永兴</b> 미슐랭 베이징덕 (전화예약)</td></tr>
+  </table>
+
+  <div class="grid2" style="margin-top:5mm">
+    <div class="card"><h3>✅ 예약 필수</h3>
+      <ul class="chk">
+        <li><b>✔ 고속철 G1583 (9/18) — 완료</b></li>
+        <li>영은사 — 위챗 사전예약 (당일 불가)</li>
+        <li>예원 — 실명 시간대 예약</li>
+        <li>晟永兴 — 전화 예약</li>
+        <li>뇌봉탑 — 위챗 예약(권장)</li>
+        <li>공항 차량 (9/21 05:00)</li>
+        <li>도시 간 차량 (항저우→우전→상하이)</li>
+      </ul>
+    </div>
+    <div class="card"><h3>🕒 운영시간 · 휴무</h3>
+      <ul>
+        <li><b>영은사</b> 07:30–17:30 · 예약필수(무료)</li>
+        <li><b>예원</b> 09:00–16:30 · <b>월 휴무</b></li>
+        <li><b>뇌봉탑</b> 08:00–20:00 · ¥40</li>
+        <li><b>우전 서책 야간</b> 17:30–22:30</li>
+        <li><b>허마</b> 대략 08:00–22:00</li>
+      </ul>
+    </div>
+    <div class="card"><h3>📱 통신 · 결제</h3>
+      <ul>
+        <li><b>알리페이</b> 한국카드 연동·충전</li>
+        <li><b>VPN</b> 한국서 미리 설치</li>
+        <li><b>고덕지도(高德)</b> VPN 없이 지도</li>
+        <li><b>위챗</b> 예약·결제·연락</li>
+        <li><b>현금 ¥</b> 소액 비상용</li>
+      </ul>
+    </div>
+    <div class="card"><h3>👵👴 부모님 배려</h3>
+      <ul>
+        <li>하루 핵심 2~3곳, 무리 금지</li>
+        <li>오후 호텔 복귀·휴식 확보</li>
+        <li>영은사·우전 일부 오르막 주의</li>
+        <li>야시장·야식은 선택(생략 OK)</li>
+        <li>여권·물·화장실 미리 챙기기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">요약 · 여권 4인 실물 지참 · 5 / 5</div>
+</section>
+
+</body>
+</html>
