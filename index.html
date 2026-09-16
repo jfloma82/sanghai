@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>상하이 · 항저우 · 우전 가족 여행</title>
+    <meta
+      name="description"
+      content="부모님과 함께 보는 2026년 9월 상하이·항저우·우전 3박 4일 가족 여행 일정표"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #172033;
+        --muted: #667085;
+        --line: #d7dde8;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --blue: #1f5eff;
+        --teal: #007f83;
+        --green: #26734d;
+        --rose: #a83f4d;
+        --gold: #946200;
+        --shadow: 0 18px 45px rgba(23, 32, 51, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 8% 8%, rgba(31, 94, 255, 0.08), transparent 28rem),
+          linear-gradient(180deg, #f6f8fb 0%, var(--paper) 34rem);
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+          "Noto Sans KR", sans-serif;
+        line-height: 1.65;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .hero {
+        background: #101828;
+        color: #fff;
+        border-radius: 28px;
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: #b8d4ff;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .hero p {
+        max-width: 860px;
+        margin: 18px 0 0;
+        color: #e5ecf7;
+        font-size: 22px;
+      }
+
+      .top-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.12);
+        color: inherit;
+        border-radius: 999px;
+        padding: 12px 18px;
+        min-height: 48px;
+        cursor: pointer;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .btn.light {
+        background: #fff;
+        color: #111827;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 22px 0 0;
+      }
+
+      .quick-card,
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(23, 32, 51, 0.06);
+      }
+
+      .quick-card span,
+      .card .label {
+        display: block;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .quick-card strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 27px;
+        line-height: 1.2;
+      }
+
+      .quick-card p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .section {
+        margin-top: 28px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 30px;
+        letter-spacing: 0;
+      }
+
+      .hint {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .tab {
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        border-radius: 16px;
+        padding: 16px 14px;
+        min-height: 86px;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .tab[aria-selected="true"] {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(31, 94, 255, 0.14);
+      }
+
+      .tab span {
+        display: block;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .tab strong {
+        display: block;
+        margin-top: 4px;
+        font-size: 20px;
+      }
+
+      .day-panel {
+        display: none;
+        margin-top: 16px;
+      }
+
+      .day-panel.active {
+        display: block;
+      }
+
+      .day-summary {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .summary-box {
+        border-left: 5px solid var(--blue);
+        background: #fff;
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .summary-box strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 18px;
+      }
+
+      .summary-box p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 12px;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .time {
+        color: var(--blue);
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .item h3 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.3;
+      }
+
+      .item p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+        border-radius: 999px;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .transport {
+        background: var(--blue);
+      }
+
+      .food {
+        background: var(--rose);
+      }
+
+      .walk {
+        background: var(--green);
+      }
+
+      .hotel {
+        background: var(--teal);
+      }
+
+      .museum {
+        background: var(--gold);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .check-row {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 10px;
+        align-items: start;
+        padding: 11px 0;
+        border-top: 1px solid #edf0f5;
+        font-size: 18px;
+      }
+
+      .check-row input {
+        width: 24px;
+        height: 24px;
+        margin-top: 3px;
+      }
+
+      .map-line {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      .map-node {
+        position: relative;
+        min-height: 118px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #fff;
+        padding: 16px;
+      }
+
+      .map-node:not(:last-child)::after {
+        content: ">";
+        position: absolute;
+        right: -13px;
+        top: 42px;
+        z-index: 1;
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+      }
+
+      .map-node strong {
+        display: block;
+        font-size: 20px;
+      }
+
+      .map-node span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+      }
+
+      .large-text body,
+      body.large-text {
+        font-size: 20px;
+      }
+
+      body.large-text .item p,
+      body.large-text .quick-card p,
+      body.large-text .check-row {
+        font-size: 21px;
+      }
+
+      body.large-text .item h3 {
+        font-size: 28px;
+      }
+
+      body.large-text .time {
+        font-size: 28px;
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          width: min(100% - 20px, 720px);
+          padding-top: 12px;
+        }
+
+        .hero {
+          border-radius: 20px;
+          padding: 24px;
+        }
+
+        .hero p {
+          font-size: 19px;
+        }
+
+        .quick-grid,
+        .tabs,
+        .day-summary,
+        .two-col,
+        .map-line {
+          grid-template-columns: 1fr;
+        }
+
+        .item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .map-node:not(:last-child)::after {
+          content: "v";
+          left: 50%;
+          right: auto;
+          top: auto;
+          bottom: -15px;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">2026.09.18 - 2026.09.21 · 가족 4명</p>
+        <h1>상하이 · 항저우 · 우전 가족 여행</h1>
+        <p>
+          최종 A4 일정 정보를 반영한 3박 4일 모바일 일정표입니다. 핵심 이동,
+          숙소, 예약 체크리스트와 방문 팁을 한 화면에서 바로 확인합니다.
+        </p>
+        <div class="top-actions">
+          <button class="btn light" type="button" id="toggleText">큰 글씨 켜기</button>
+          <a class="btn" href="./print-a4.html">인쇄용 A4 보기</a>
+          <button class="btn" type="button" onclick="window.print()">PDF/인쇄</button>
+        </div>
+      </section>
+
+      <section class="quick-grid" aria-label="핵심 이동">
+        <article class="quick-card">
+            <span>첫 이동</span>
+            <strong>08:52 동대구</strong>
+          <p>KTX-산천 370 · 오송 09:51 도착 · 청주공항 이동</p>
+        </article>
+        <article class="quick-card">
+          <span>가는 항공</span>
+          <strong>12:05 청주</strong>
+          <p>춘추항공 9C7050 · 푸동 13:10 도착</p>
+        </article>
+        <article class="quick-card">
+          <span>중국 고속철</span>
+          <strong>16:32 홍차오</strong>
+          <p>G1583 · 항저우동 17:24 · 04호차 004A·004B·005D·005F</p>
+        </article>
+        <article class="quick-card">
+          <span>귀국일</span>
+          <strong>05:00 호텔 출발</strong>
+          <p>푸동공항 07:55 출발 · 청주 11:05 도착</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>일정표</h2>
+          <p class="hint">날짜를 누르면 상세 일정이 바뀝니다.</p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab" type="button" data-day="day1" aria-selected="true">
+            <span>Day 1 · 9/18 금</span><strong>도착 · 항저우의 밤</strong>
+          </button>
+          <button class="tab" type="button" data-day="day2" aria-selected="false">
+            <span>Day 2 · 9/19 토</span><strong>서호와 우전 야경</strong>
+          </button>
+          <button class="tab" type="button" data-day="day3" aria-selected="false">
+            <span>Day 3 · 9/20 일</span><strong>우전 아침 · 상하이 밤</strong>
+          </button>
+          <button class="tab" type="button" data-day="day4" aria-selected="false">
+            <span>Day 4 · 9/21 월</span><strong>새벽 공항 이동</strong>
+          </button>
+        </div>
+
+        <article class="day-panel active" id="day1">
+          <div class="day-summary">
+            <div class="summary-box"><strong>테마</strong><p>청주에서 푸동으로 들어와 Airport Link와 고속철을 이어 타고 항저우 도착.</p></div>
+            <div class="summary-box"><strong>식사</strong><p>훙차오역 간단식, 항저우 카오장 마라 카오위.</p></div>
+            <div class="summary-box"><strong>대체안</strong><p>피곤하거나 환승이 늦으면 뇌봉탑·야시장·야식은 생략.</p></div>
+          </div>
+          <div class="timeline">
+            <div class="card item"><div class="time">08:52-09:51</div><div><span class="chip transport">이동</span><h3>KTX-산천 370 탑승</h3><p>동대구 → 오송. 7호차 일반실, 좌석 2A·2B 확인. 타는곳 C는 전광판 재확인.</p></div></div>
+            <div class="card item"><div class="time">12:05-13:10</div><div><span class="chip transport">항공</span><h3>춘추항공 9C7050</h3><p>청주공항 출발, 상하이 푸동 도착. 입국·짐 찾기 약 45분, 14시경 공항 출발 목표. 알리페이·VPN·심카드 미리 준비.</p></div></div>
+            <div class="card item"><div class="time">14:00-15:00</div><div><span class="chip transport">이동</span><h3>푸동공항 → 훙차오역</h3><p>Airport Link로 약 40분. 훙차오 기차역에서 고속철 환승.</p></div></div>
+            <div class="card item"><div class="time">15:00-16:00</div><div><span class="chip food">식사</span><h3>훙차오역 점심</h3><p>샤오롱바오·완탕 + Luckin Coffee. 열차 시간에 맞춰 가볍게 식사.</p></div></div>
+            <div class="card item"><div class="time">16:32-17:24</div><div><span class="chip transport">고속철</span><h3>G1583 홍차오 → 항저우동</h3><p>예약 완료. 훙차오 16:32 → 항저우동 17:24, 52분. 04호차 004A·004B·005D·005F, 여권 실물 개찰. 도착 후 호텔까지 택시 20-30분.</p></div></div>
+            <div class="card item"><div class="time">저녁 초입</div><div><span class="chip hotel">숙소</span><h3>치위에 웨스트레이크 호텔 체크인</h3><p>럭셔리 패밀리 스위트. 짐을 풀고 잠시 휴식 후 나섭니다.</p></div></div>
+            <div class="card item"><div class="time">18:15~야경</div><div><span class="chip walk">관광</span><h3>뇌봉탑 해질녘·야경</h3><p>성수기 08:00-20:00, 입장 약 ¥40. 엘리베이터가 있어 부모님도 비교적 편합니다. 피곤하면 내일로 미뤄도 됩니다.</p></div></div>
+            <div class="card item"><div class="time">19:00-20:30</div><div><span class="chip food">식사</span><h3>카오장 저녁</h3><p>쓰촨 마라 구운생선. 현장 번호표 대기가 길면 루위로 전환.</p></div></div>
+            <div class="card item"><div class="time">밤</div><div><span class="chip walk">선택</span><h3>서호 야경 · 우린 야시장 · 양꼬치</h3><p>평지 위주로 짧게 산책. 부모님 컨디션에 따라 야시장과 야식은 생략 가능.</p></div></div>
+          </div>
+        </article>
+
+        <article class="day-panel" id="day2">
+          <div class="day-summary">
+            <div class="summary-box"><strong>테마</strong><p>서호 아침 산책, 허팡지에, 영은사·비래봉 후 우전 서책 야경.</p></div>
+            <div class="summary-box"><strong>식사</strong><p>녹차식당 본점 점심, 우전 경관구 안 저녁.</p></div>
+            <div class="summary-box"><strong>주의</strong><p>영은사·비래봉은 위챗 사전예약 필수. 당일 불가·주말 조기매진 가능.</p></div>
+          </div>
+          <div class="timeline">
+            <div class="card item"><div class="time">아침</div><div><span class="chip walk">산책</span><h3>서호 아침 산책</h3><p>숙소에서 가까운 평지 구간을 천천히 걷고 가족 사진을 남깁니다.</p></div></div>
+            <div class="card item"><div class="time">10:00-11:30</div><div><span class="chip walk">관광</span><h3>허팡지에 산책</h3><p>후칭위탕, 왕싱지 부채, 기념품과 차를 보며 걷는 옛 거리.</p></div></div>
+            <div class="card item"><div class="time">12:00-13:15</div><div><span class="chip food">식사</span><h3>녹차식당 본점 점심</h3><p>훈제 통닭구이, 불꽃새우, 면바오유훠 추천. 주말 대기 대비.</p></div></div>
+            <div class="card item"><div class="time">14:00-16:00</div><div><span class="chip walk">관광</span><h3>영은사 + 비래봉</h3><p>무료지만 위챗 '杭州灵隐飞来峰' 사전예약 필수. 07:30-17:30, 일부 오르막 주의.</p></div></div>
+            <div class="card item"><div class="time">16:30-18:00</div><div><span class="chip transport">이동</span><h3>항저우 → 우전</h3><p>전세 차량 약 1-1.5시간. 짐과 부모님 편의를 위해 저녁 전 도착 목표.</p></div></div>
+            <div class="card item"><div class="time">저녁 초입</div><div><span class="chip hotel">숙소</span><h3>Dockside 호텔 체크인</h3><p>우전 경관구 안 패밀리 스위트. 짐을 두고 저녁과 야경 산책으로 이동.</p></div></div>
+            <div class="card item"><div class="time">19:30-21:30</div><div><span class="chip walk">야경</span><h3>우전 서책 야경</h3><p>물의 마을 하이라이트. 경관구 숙박으로 자유 재입장 가능, 야간 17:30-22:30.</p></div></div>
+          </div>
+        </article>
+
+        <article class="day-panel" id="day3">
+          <div class="day-summary">
+            <div class="summary-box"><strong>테마</strong><p>우전 아침 산책 후 상하이 티엔즈팡, 예원, 푸동미술관, 루자쭈이 야경.</p></div>
+            <div class="summary-box"><strong>식사</strong><p>晟永兴 Sheng Yong Xing 베이징덕.</p></div>
+            <div class="summary-box"><strong>대체안</strong><p>예원 입장이 늦으면 성황묘 상가 위주로 조정.</p></div>
+          </div>
+          <div class="timeline">
+            <div class="card item"><div class="time">08:00-09:30</div><div><span class="chip walk">산책</span><h3>우전 아침 산책</h3><p>관광객이 오기 전 물안개 낀 조용한 물길. 사진 베스트 시간대.</p></div></div>
+            <div class="card item"><div class="time">10:00-11:45</div><div><span class="chip transport">이동</span><h3>우전 → 상하이</h3><p>전세 차량 약 1.5시간. 호텔 앞까지 환승 없이 이동.</p></div></div>
+            <div class="card item"><div class="time">14:00</div><div><span class="chip hotel">숙소</span><h3>푸이 호텔 다푸차오 체크인</h3><p>짐만 두고 바로 출발. 티엔즈팡이 호텔 도보권입니다.</p></div></div>
+            <div class="card item"><div class="time">14:30-15:20</div><div><span class="chip walk">관광</span><h3>티엔즈팡</h3><p>석고문 골목 아트타운. 갤러리, 공방, 기념품을 가볍게 둘러봅니다.</p></div></div>
+            <div class="card item"><div class="time">15:40-16:40</div><div><span class="chip walk">관광</span><h3>예원 · 성황묘</h3><p>DiDi 약 15분. 예원은 16시 전 입장, 월요일 휴무, 실명 시간대 예약 필요. 난샹 샤오롱바오와 골목 산책.</p></div></div>
+            <div class="card item"><div class="time">17:00-18:20</div><div><span class="chip museum">전시</span><h3>푸동미술관</h3><p>DiDi 약 10분. 장 누벨 설계, 강변 뷰. 매일 10:00-21:00, 관람 후 도보 5분.</p></div></div>
+            <div class="card item"><div class="time">18:30-20:00</div><div><span class="chip food">식사</span><h3>晟永兴 Sheng Yong Xing 저녁</h3><p>미슐랭 1스타 베이징덕. 루자쭈이, 전화 사전 예약 필수.</p></div></div>
+            <div class="card item"><div class="time">20:00-20:40</div><div><span class="chip walk">야경</span><h3>루자쭈이 야경</h3><p>푸동 스카이라인. 평지 산책과 여행 마지막 가족 사진.</p></div></div>
+            <div class="card item"><div class="time">21:00-22:00</div><div><span class="chip walk">쇼핑</span><h3>일월광센터 · 허마 쇼핑</h3><p>호텔 근처까지 DiDi 약 15분. 과일, 간식, 기념품을 사고 알리페이 결제 후 호텔 복귀.</p></div></div>
+          </div>
+        </article>
+
+        <article class="day-panel" id="day4">
+          <div class="day-summary">
+            <div class="summary-box"><strong>테마</strong><p>푸동공항 07:55 출발편에 맞춰 05:00 호텔 출발.</p></div>
+            <div class="summary-box"><strong>식사</strong><p>공항 간단식. 전날 밤 과식과 카페인 과다 피하기.</p></div>
+            <div class="summary-box"><strong>주의</strong><p>짐·체크아웃·차량은 전날 밤 준비. 다푸차오 → 공항 약 50-60분.</p></div>
+          </div>
+          <div class="timeline">
+            <div class="card item"><div class="time">전날 21:30</div><div><span class="chip hotel">준비</span><h3>짐 완전 패킹</h3><p>여권, 항공권, 보조배터리, 액체류, 수하물 무게를 미리 정리.</p></div></div>
+            <div class="card item"><div class="time">05:00</div><div><span class="chip transport">이동</span><h3>호텔 출발</h3><p>새벽 지하철은 불리하므로 사전 예약 차량 권장. 약 50-60분 예상.</p></div></div>
+            <div class="card item"><div class="time">06:00 전후</div><div><span class="chip transport">공항</span><h3>푸동공항 도착 목표</h3><p>체크인, 수하물, 출국심사, 보안검색 여유 확보. 게이트 먼저 확인.</p></div></div>
+            <div class="card item"><div class="time">07:55-11:05</div><div><span class="chip transport">항공</span><h3>춘추항공 9C7049 귀국편</h3><p>푸동공항 출발, 청주공항 도착. 면세 쇼핑보다 게이트 이동 우선.</p></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section two-col">
+        <article class="card">
+          <span class="label">숙소</span>
+          <h2>확정 숙소</h2>
+          <p><strong>9/18 항저우</strong><br />치위에 웨스트레이크 호텔 · 럭셔리 패밀리 스위트 · 서호/뇌봉탑 방면</p>
+          <p><strong>9/19 우전</strong><br />Dockside Boutique Hotel · 경관구 내부 패밀리 스위트 · 야경 자유 재입장</p>
+          <p><strong>9/20 상하이</strong><br />푸이 호텔(PU) 다푸차오점 · 듀플렉스 패밀리 스위트 · 신천지/티엔즈팡 근처</p>
+        </article>
+        <article class="card">
+          <span class="label">체크리스트</span>
+          <h2>예약 전 확인</h2>
+          <label class="check-row"><input type="checkbox" /> <span>9/19 오후 영은사·비래봉 사전예약</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>9/20 예원 실명 시간대 예약</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>9/20 Sheng Yong Xing 전화 예약</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>9/18 뇌봉탑 위챗 예약 또는 현장 확인</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>항저우 → 우전 전세 차량 수배</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>우전 → 상하이 전세 차량 수배</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>9/21 05:00 푸동공항 차량 예약</span></label>
+          <label class="check-row"><input type="checkbox" /> <span>알리페이·위챗·VPN·고덕지도 준비</span></label>
+        </article>
+      </section>
+
+      <section class="section two-col">
+        <article class="card">
+          <span class="label">맛집</span>
+          <h2>식사 후보</h2>
+          <p><strong>Day 1 저녁</strong><br />카오장 마라 구운생선 · 대안 루위</p>
+          <p><strong>Day 2 점심</strong><br />녹차식당 본점 · 영은로 · 훈제통닭</p>
+          <p><strong>Day 1 야식</strong><br />很久以前羊肉串 양꼬치 · 컨디션 되면 가볍게</p>
+          <p><strong>Day 3 저녁</strong><br />晟永兴 미슐랭 베이징덕 · 전화 예약</p>
+        </article>
+        <article class="card">
+          <span class="label">운영시간</span>
+          <h2>현장 체크</h2>
+          <p><strong>영은사</strong><br />07:30-17:30 · 예약 필수 · 무료</p>
+          <p><strong>예원</strong><br />09:00-16:30 · 월요일 휴무 · 16시 전 입장</p>
+          <p><strong>뇌봉탑</strong><br />08:00-20:00 · 약 ¥40 · 엘리베이터</p>
+          <p><strong>우전 서책 야간</strong><br />17:30-22:30 · 숙박 시 야경 접근 편리</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>전체 동선 지도</h2>
+          <p class="hint">휴대폰에서 한눈에 보는 이동 흐름</p>
+        </div>
+        <div class="map-line">
+          <div class="map-node"><strong>푸동공항</strong><span>9/18 13:10 도착</span></div>
+          <div class="map-node"><strong>홍차오역</strong><span>G1583 탑승</span></div>
+          <div class="map-node"><strong>항저우</strong><span>서호 · 영은사</span></div>
+          <div class="map-node"><strong>우전</strong><span>서책 1박</span></div>
+          <div class="map-node"><strong>상하이</strong><span>예원 · 루자쭈이</span></div>
+          <div class="map-node"><strong>푸동공항</strong><span>9/21 07:55 출발</span></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const textButton = document.getElementById("toggleText");
+      const savedLargeText = localStorage.getItem("sanghai-large-text") === "true";
+      if (savedLargeText) document.body.classList.add("large-text");
+      textButton.textContent = savedLargeText ? "큰 글씨 끄기" : "큰 글씨 켜기";
+
+      textButton.addEventListener("click", () => {
+        document.body.classList.toggle("large-text");
+        const enabled = document.body.classList.contains("large-text");
+        localStorage.setItem("sanghai-large-text", String(enabled));
+        textButton.textContent = enabled ? "큰 글씨 끄기" : "큰 글씨 켜기";
+      });
+
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach((button) => {
+            button.setAttribute("aria-selected", "false");
+          });
+          document.querySelectorAll(".day-panel").forEach((panel) => {
+            panel.classList.remove("active");
+          });
+          tab.setAttribute("aria-selected", "true");
+          document.getElementById(tab.dataset.day).classList.add("active");
+        });
+      });
+
+      document.querySelectorAll(".check-row input").forEach((checkbox, index) => {
+        const key = `sanghai-check-${index}`;
+        checkbox.checked = localStorage.getItem(key) === "true";
+        checkbox.addEventListener("change", () => {
+          localStorage.setItem(key, String(checkbox.checked));
+        });
+      });
+    </script>
+  </body>
+</html>
