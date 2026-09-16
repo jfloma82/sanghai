@@ -5,150 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ìƒí•˜ì´Â·í•­ì €ìš°Â·ìš°ì „ ê°€ì¡± ì—¬í–‰ ì¼ì • (ì¸ì‡„ìš© A4)</title>
 <style>
-/* ===== ì¸ì‡„ìš© A4 Â· í° ë°°ê²½ Â· í° ê¸€ì”¨ Â· í•µì‹¬ë§Œ =====
-   ì¸ì‡„ ë°©ë²•: ë¸Œë¼ìš°ì € ì¸ì‡„(âŒ˜P / Ctrl+P) â†’ ìš©ì§€ A4 ì„¸ë¡œ â†’ ì—¬ë°± 'ê¸°ë³¸'.
-   ìƒ‰ í…Œë‘ë¦¬Â·ê°•ì¡°ìƒ‰ì€ ë°°ê²½ê·¸ë˜í”½ ì„¤ì •ê³¼ ë¬´ê´€í•˜ê²Œ ì¸ì‡„ë©ë‹ˆë‹¤.        */
-
-:root{
-  --ink:#1a1a1a;
-  --sub:#555;
-  --line:#cfcfcf;
-  --accent:#c8461f;   /* ê°•ì¡°(ì£¼í™©) */
-  --hz:#3f7d4e;        /* í•­ì €ìš° ì´ˆë¡ */
-  --wz:#2f6d95;        /* ìš°ì „ íŒŒë‘ */
-  --sh:#c8461f;        /* ìƒí•˜ì´ ì£¼í™© */
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{
-  font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
-  color:var(--ink);line-height:1.55;background:#e9e9e9;
-  font-size:14pt;
-}
-
-/* í™”ë©´ì—ì„œëŠ” í˜ì´ì§€ë¥¼ ì¹´ë“œì²˜ëŸ¼, ì¸ì‡„ì—ì„œëŠ” A4 í•œ ì¥ì”© */
-.page{
-  width:210mm;min-height:297mm;background:#fff;margin:10mm auto;
-  padding:16mm 15mm;position:relative;
-}
-@media print{
-  body{background:#fff}
-  .page{width:auto;min-height:auto;margin:0;padding:0;page-break-after:always}
-  .page:last-child{page-break-after:auto}
-  .noprint{display:none !important}
-}
-
-/* ---- ê³µí†µ ìš”ì†Œ ---- */
-.kicker{font-size:11pt;letter-spacing:.15em;color:var(--sub);text-transform:uppercase;margin-bottom:6mm}
-.daytag{display:inline-block;font-size:11pt;font-weight:700;padding:2px 10px;border:2px solid var(--accent);color:var(--accent);border-radius:3px;margin-bottom:4mm}
-.daytag.hz{border-color:var(--hz);color:var(--hz)}
-.daytag.wz{border-color:var(--wz);color:var(--wz)}
-.daytag.sh{border-color:var(--sh);color:var(--sh)}
-
-h1{font-size:34pt;line-height:1.1;letter-spacing:-.01em;margin-bottom:5mm}
-h1 small{display:block;font-size:13pt;color:var(--sub);font-weight:600;letter-spacing:.05em;margin-top:3mm}
-h2{font-size:24pt;line-height:1.15;margin-bottom:2mm}
-h2 .d{font-size:13pt;color:var(--sub);font-weight:600}
-.sectitle{font-size:13pt;font-weight:800;color:var(--accent);letter-spacing:.06em;margin:6mm 0 3mm;padding-bottom:2mm;border-bottom:2px solid var(--accent)}
-
-/* ê°œìš” í‘œ */
-.facts{width:100%;border-collapse:collapse;margin-bottom:5mm;font-size:13.5pt}
-.facts th,.facts td{text-align:left;padding:3.2mm 3mm;border-bottom:1px solid var(--line);vertical-align:top}
-.facts th{width:34mm;color:var(--sub);font-weight:700;white-space:nowrap}
-.facts td b{font-weight:800}
-
-.box{border:2px solid var(--line);border-left:5px solid var(--accent);border-radius:4px;padding:4mm 5mm;margin-bottom:5mm}
-.box.hz{border-left-color:var(--hz)}
-.box.wz{border-left-color:var(--wz)}
-.box.sh{border-left-color:var(--sh)}
-.box .t{font-size:14pt;font-weight:800;margin-bottom:1.5mm}
-.box .s{font-size:12.5pt;color:var(--sub);line-height:1.5}
-
-/* íƒ€ì„ë¼ì¸ */
-.tl{width:100%;border-collapse:collapse;margin-top:2mm}
-.tl tr{border-bottom:1px solid var(--line)}
-.tl tr:last-child{border-bottom:none}
-.tl td{padding:3.6mm 2mm;vertical-align:top}
-.tl .time{width:26mm;font-size:12.5pt;font-weight:800;color:var(--accent);white-space:nowrap;line-height:1.3}
-.tl .body .p{font-size:15pt;font-weight:800;line-height:1.25}
-.tl .body .p .star{color:var(--accent);font-weight:800}
-.tl .body .n{font-size:12.5pt;color:var(--sub);margin-top:1mm;line-height:1.45}
-.tl .body .n b{color:var(--ink);font-weight:700}
-.warn{color:var(--accent);font-weight:800}
-
-/* ìš”ì•½ ë¦¬ìŠ¤íŠ¸ */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm 8mm}
-.card{border:2px solid var(--line);border-radius:4px;padding:4mm 5mm}
-.card h3{font-size:13pt;color:var(--accent);letter-spacing:.04em;margin-bottom:2.5mm}
-.card ul{list-style:none}
-.card li{font-size:12.5pt;padding:2mm 0;border-bottom:1px dotted var(--line);line-height:1.4}
-.card li:last-child{border-bottom:none}
-.card li b{font-weight:800}
-.chk li::before{content:"â˜ ";font-weight:800;color:var(--accent)}
-
-.footer{position:absolute;bottom:10mm;left:15mm;right:15mm;font-size:10pt;color:#999;text-align:center;border-top:1px solid var(--line);padding-top:2mm}
-
-.hint{max-width:210mm;margin:6mm auto 0;font-size:12pt;color:#333;background:#fff8f2;border:1px solid #f0c9b4;border-radius:6px;padding:4mm 6mm}
+:root{--ink:#171717;--sub:#575757;--line:#d4d4d4;--accent:#c8461f;--hz:#3f7d4e;--wz:#2f6d95;--sh:#c8461f}*{box-sizing:border-box}body{margin:0;background:#e9e9e9;color:var(--ink);font-family:"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;font-size:14pt;line-height:1.55}.page{width:210mm;min-height:297mm;margin:10mm auto;padding:16mm 15mm;background:#fff;position:relative}.kicker{font-size:11pt;letter-spacing:.12em;color:var(--sub);font-weight:800;margin-bottom:6mm}h1{font-size:34pt;line-height:1.12;margin:0 0 5mm}h1 small{display:block;font-size:13pt;color:var(--sub);font-weight:700;margin-top:3mm}h2{font-size:24pt;line-height:1.15;margin:0 0 5mm}.sectitle{font-size:13pt;font-weight:900;color:var(--accent);letter-spacing:.04em;border-bottom:2px solid var(--accent);padding-bottom:2mm;margin:6mm 0 3mm}.facts{width:100%;border-collapse:collapse;font-size:13.5pt;margin-bottom:5mm}.facts th,.facts td{text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:3.2mm 3mm}.facts th{width:34mm;color:var(--sub);white-space:nowrap}.box{border:2px solid var(--line);border-left:5px solid var(--accent);border-radius:4px;padding:4mm 5mm;margin-bottom:5mm}.box.hz{border-left-color:var(--hz)}.box.wz{border-left-color:var(--wz)}.box.sh{border-left-color:var(--sh)}.box .t{font-size:14pt;font-weight:900;margin-bottom:1.5mm}.box .s{font-size:12.5pt;color:var(--sub)}.tag{display:inline-block;font-size:11pt;font-weight:900;padding:2px 10px;border:2px solid var(--accent);color:var(--accent);border-radius:3px;margin-bottom:4mm}.tag.hz{border-color:var(--hz);color:var(--hz)}.tag.wz{border-color:var(--wz);color:var(--wz)}.tag.sh{border-color:var(--sh);color:var(--sh)}.tl{width:100%;border-collapse:collapse}.tl tr{border-bottom:1px solid var(--line)}.tl tr:last-child{border-bottom:none}.tl td{vertical-align:top;padding:3.5mm 2mm}.time{width:28mm;color:var(--accent);font-size:12.5pt;font-weight:900;white-space:nowrap}.p{font-size:15pt;font-weight:900;line-height:1.25}.n{font-size:12.5pt;color:var(--sub);margin-top:1mm}.warn{color:var(--accent);font-weight:900}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm 8mm}.card{border:2px solid var(--line);border-radius:4px;padding:4mm 5mm}.card h3{margin:0 0 2.5mm;color:var(--accent);font-size:13pt}.card ul{list-style:none;padding:0;margin:0}.card li{font-size:12.5pt;padding:2mm 0;border-bottom:1px dotted var(--line)}.card li:last-child{border-bottom:none}.footer{position:absolute;left:15mm;right:15mm;bottom:10mm;text-align:center;font-size:10pt;color:#999;border-top:1px solid var(--line);padding-top:2mm}.hint{max-width:210mm;margin:6mm auto 0;background:#fff8f2;border:1px solid #f0c9b4;border-radius:6px;padding:4mm 6mm;font-size:12pt}@media print{body{background:#fff}.page{width:auto;min-height:auto;margin:0;padding:0;page-break-after:always}.page:last-child{page-break-after:auto}.hint{display:none!important}}
 </style>
 </head>
 <body>
-
-<div class="hint noprint">
-  ğŸ–¨ï¸ <b>ì¸ì‡„ ë°©ë²•</b> â€” ì´ í˜ì´ì§€ì—ì„œ <b>âŒ˜P (Mac) / Ctrl+P</b> â†’ ìš©ì§€ <b>A4 ì„¸ë¡œ</b>, ì—¬ë°± 'ê¸°ë³¸'. ì´ 5ì¥. ìƒ‰ ê°•ì¡°ë¥¼ ì‚´ë¦¬ë ¤ë©´ ì¸ì‡„ ì˜µì…˜ì—ì„œ 'ë°°ê²½ ê·¸ë˜í”½'ì„ ì¼œì„¸ìš”(ì•ˆ ì¼œë„ ê¸€ìÂ·í…Œë‘ë¦¬ëŠ” ì •ìƒ ì¸ì‡„).
-</div>
-
-<!-- â•â•â•â•â•â•â•â•â•â•â• PAGE 1 Â· í‘œì§€ & ê°œìš” â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="hint"><b>ì¸ì‡„ ë°©ë²•</b> ë¸Œë¼ìš°ì € ì¸ì‡„ì—ì„œ ìš©ì§€ A4 ì„¸ë¡œ, ì—¬ë°± ê¸°ë³¸ì„ ì„ íƒí•˜ì„¸ìš”. ì´ 5ì¥ êµ¬ì„±ì…ë‹ˆë‹¤.</div>
 <section class="page">
-  <div class="kicker">ä¸Šæµ· Â· æ­å· Â· ä¹Œé•‡ Â· FAMILY TRIP</div>
-  <h1>ìƒí•˜ì´ Â· í•­ì €ìš° Â· ìš°ì „<br/>ê°€ì¡± ì—¬í–‰ ì¼ì •
-    <small>2026. 09. 18(ê¸ˆ) ~ 09. 21(ì›”) Â· 3ë°• 4ì¼ Â· 4ì¸ (ë¶€ëª¨ë‹˜ 2 + 40ëŒ€ 2)</small>
-  </h1>
-
-  <div class="sectitle">ê²½ë¡œ</div>
-  <div style="font-size:14pt;font-weight:700;line-height:1.9;margin-bottom:4mm">
-    ì²­ì£¼(CJJ) âœˆ ìƒí•˜ì´ í‘¸ë™ â†’ ğŸš„ í•­ì €ìš° â†’ ğŸšŒ ìš°ì „ â†’ ğŸšŒ ìƒí•˜ì´ƒŠHƒŠr ƒ²Ê·²ğ(€€ğ½‘¥Øø((€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥Ñ±”ˆû²V·²ªÄƒ
-Üƒ²Êc²Ú_¶—¶V§’¶+šb—š/¢"«¦(ƒ
-ÜMÁÉ¥¹œ¥É±¥¹•Ì¤ğ½‘¥Øø(€€ñÑ…‰±”±…ÍÌô‰™…ÑÌˆø(€€€€ñÑÈøñÑ ûªÖ·®Ó²^ÃªÊÀğ½Ñ øñÑû®>g®2ªÖ°€ñˆøÀàèÔÈğ½ˆøƒŠHƒ²b“²„€ñˆøÀäèÔÄğ½ˆø€¡-Q`·²
-Ã²Êp€ÌÜÀ¤ƒŠHƒ²Ê·²óªÎ×¶V´ğ½Ñøğ½ÑÈø(€€€€ñÑÈøñÑ ûªÂ®*S¶:à€åÜÀÔÀğ½Ñ øñÑøñˆøä¼Äà£ªâ ¤ğ½ˆøƒ²Ê·²ğ€ñˆøÄÈèÀÔğ½ˆøƒŠHƒ²¶Vc²vĞƒ¶Fã®>d€ñˆøÄÌèÄÀğ½ˆøğ½Ñøğ½ÑÈø(€€€€ñÑÈøñÑ û²b“®*S¶:à€åÜÀĞäğ½Ñ øñÑøñˆøä¼ÈÄ£²nP¤ğ½ˆøƒ²¶Vc²vĞƒ¶Fã®>d€ñˆøÀÜèÔÔğ½ˆøƒŠHƒ²Ê·²ğ€ñˆøÄÄèÀÔğ½ˆøğ½Ñøğ½ÑÈø(€€ğ½Ñ…‰±”ø((€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥Ñ±”ˆûªÎƒ²7²Ê€ƒ
-Üƒ²b#²Vôƒ²f®0ƒŠrğ½‘¥Øø(€€ñÑ…‰±”±…ÍÌô‰™…ÑÌˆø(€€€€ñÑÈøñÑ ùÄÔàÌğ½Ñ øñÑøñˆøä¼Äà£ªâ$¤ğ½ˆøƒ²¶Vc²vĞƒ¶ng²Â£²b€ñˆøÄØèÌÈğ½ˆøƒŠHƒ¶V·²‚²jÃ®>d€ñˆøÄÜèÈĞğ½ˆø€ ÔË®Ú¤ƒ
-Ü€Ó²và€ñˆû²vÓ®Ns²t€ÀÓ¶bã²Â ğ½ˆø€ ÀÀÑ
-ÜÀÀÑ
-ÜÀÀÕ
-ÜÀÀÕ¤ğ½Ñøğ½ÑÈø(€€ğ½Ñ…‰±”ø((€€ñ‘¥Ø±…ÍÌô‰Í•Ñ¥Ñ±”ˆû²"g²0€ Ï®ÂTƒ
-Üƒ®ª£®F@ƒ²b#²Vôƒ²f®0¤ğ½‘¥Øø(€€ñ‘¥Ø±…ÍÌô‰‰½à¡èˆøñ‘¥Ø±…ÍÌô‰Ğˆû¶V·²‚²jÀƒ
-Üƒ²æc²r²^@ƒ²n£²*“¶*ã®‚#²vÓ¶°ƒ¶bã¶SÂöF—cãÆF—b6Æ73Ò'2#ã’ó‚(i"¹úŞÈYNºjÂØÊ»ºjÂÈªNÉÈNØ«‚+rÈIÎÙ‹‚ş¸xÎ»HØ9»
-º›CÂöF—cãÂöF—cà¢ÆF—b6Æ73Ò&&÷‚w¢#ãÆF—b6Æ73Ò'B#îÉ«ÊB+rFö6·6–FR&÷WF—VR†÷FVÃÂöF—cãÆF—b6Æ73Ò'2#ã’ó’(i"ØÊ»ºjÂÈªNÉÈNØ«‚+r«+Ş«H«ZÂŠ[şjR’¸+N»h+rÉ[Î«+ÒÉéÉÊÉêÎÉè^ÉêSÂöF—cãÂöF—cà¢ÆF—b6Æ73Ò&&÷‚6‚#ãÆF—b6Æ73Ò'B#îÈ8ÙYÉÛB+rÙÉÛBÙ‹ØYB…R’¸ºNÙË
-ÉŠNÊ	ÂöF—cãÆF—b6Æ73Ò'2#ã’ó#(i"¹8ÙHÎºÈªBØÊ»ºjÂÈªNÉÈNØ«‚+rÈºË)ÎÊx+~Ø»ÉyNÊhØÊ«{ÎË)‚+rÊy»;N«H«¸ªSÂöF—cãÂöF—cà ¢ÆF—b6Æ73Ò&fö÷FW"#îÈ8ÙYÉÛL+~ÙZŞÊÉ«+~É«ÊB«ÊÉzÎÙh’+r##bã’ã(	3’ã#+ròSÂöF—cà£Â÷6V7F–öãà £ÂÒÒ)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YtR"+rD’)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YÒÓà£Ç6V7F–öâ6Æ73Ò'vR#à¢Ç7â6Æ73Ò&F—Fr‡¢#äD’+r’ó‚«ˆ‚’+riÚŞ[yãÂ÷7ãà¢Æƒ#î¸øNË
-’+rÙZŞÊÉ«ÉÙ‚»
-BÇ7â6Æ73Ò&B#îË*ŞÊ;Â(i"È8ÙYÉÛB(i"«:ÈhŞË*(i"ÙZŞÊÉ«Â÷7ããÂöƒ#à ¢ÇF&ÆR6Æ73Ò'FÂ#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã#£SÆ'"óî(	33£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îË*ŞÊ;Â(i"È8ÙYÉÛBÙ¸ù«;^ÙZÒƒ”3sS“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÉè^«ZÜ+~ÊyËî«‹É[ÒC^»hB(i"Æ#ãNÈ¹Î«+Ò«;^ÙZÒËiÎ»	ÃÂö#ââÉXÎºjÎØéÉÛL+ueì+~ÈºÎË›N¹9ÂºûºjÂÊH»˜BãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãC£Æ'"óî(	3S£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÙ¸ù’(i"Ù¹Ë
-ÉŠNÉzÒ„—'÷'BÆ–æ²“ÂöF—cà¢ÆF—b6Æ73Ò&â#î«;^ÙZÒÉ{«+ÈJÉËÎºÂÉ[ÒC»hBâÙ¹Ë
-ÉŠB«‹Ë
-ÉzŞÉyÈIÂ«:ÈhŞË*Ù™È«’ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãS£Æ'"óî(	3c£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÙ¹Ë
-ÉŠNÉzÒÊ	ÈºÃÂöF—cà¢ÆF—b6Æ73Ò&â#îÈ:NÉŠNº»	NÉŠL+~É˜NØ9R²ÇV6¶–â6öffVRâÉ{NË
-‚È¹Î«BºyîËk«»8Ş«(ÂãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãc£3#Æ'"óî(	3s£#CÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâ«:ÈhŞË*sSƒ2(i"ÙZŞÊÉ«¸ù’)ÈSÂöF—cà¢ÆF—b6Æ73Ò&â#ãÆ#îÉˆÉ[ŞÉ˜Nº8ÃÂö#â+rÙ¹Ë
-ÉŠBc£3.(i.ÙZŞÊÉ«¸ù’s£#BƒS.»hB’+rNÉÛ‚ÉÛN¹;ÈIÒNÙ‹Ë
-‚ƒD+sD,+sTL+sTb’+rÉzÎ«hÂÈºNºËÂ«	ÎËâ¸øNË
-’Ù¸BÙ‹ØYN«˜ÎÊxØ9ŞÈ¹Â#ã3»hBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#îÊ¸XÆ'"óîËHÉèSÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îË™ÉÈNÉyÉºÈªNØ«ºÉÛNØÂÙ‹ØYBË+NØÎÉÛƒÂöF—cà¢ÆF—b6Æ73Ò&â#îÊyÙ(«:ÉêÈ¹ÂÙËNÈ¹ÒÙ¸B¸)ÈJŞ¸¸¸ºBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãƒ£SÆ'"óçîÉ[Î«+ÓÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâ¸xÎ»HØ9™»~[;ZB’Ù[NÊx¸YŒ+~É[Î«+ÓÂöF—cà¢ÆF—b6Æ73Ò&â#îÈIÎÙ‹‚ÈºŞ«+ÒâÈKÈ‰«‹Æ#ãƒ£(	3#£Âö#îÉÛN¹ÛÂÈIÎ¹º[NÊxÉX®ÉXN¸øBô²+r*SC+rÆ#îÉyºjÎ»*ÉÛNØKÂö#âƒsÈK(iºËNº8Â’âÙKÎ«:NÙYº›B¸+NÉÛÎºÂºûºHN¸øB¹
-‚ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã“£Æ'"óî(	3#£3Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÊ¸X+rË›NÉŠNÉêRx:NXÊ“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÉ;ËJ‚ºx¹ÛÂ«ZÎÉ«NÈ9ŞÈJâÙˆNÉêR»(Ù‹ÙÂ¸È«‹«˜’âÆ#î¸ÈÉXƒ¢º:ÉÈBx(›Â“Âö#âãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#î»
-CÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÈIÎÙ‹‚É[Î«+ÒÈ+ËR+rÈJØ9Ò’É«ºkÉ[ÎÈ¹ÎÉêR+r[èK˜^Kº^X˜ÒÉi«ÊÎË™ƒÂöF—cà¢ÆF—b6Æ73Ò&â#îØøÊxÈ+ËRâ»hºª¸¹‚Ëº¹INÈY‚¹K¹ÛÂÉ[ÎÈ¹ÎÉê\+~É[ÎÈ¹ŞÉØÈ9Ş¹ëR«¸ªRãÂöF—cãÂ÷FCãÂ÷G#à¢Â÷F&ÆSà ¢ÆF—b6Æ73Ò&fö÷FW"#äD’+rÙZŞÊÉ«+r"òSÂöF—cà£Â÷6V7F–öãà £ÂÒÒ)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YtR2+rD’")Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YÒÓà£Ç6V7F–öâ6Æ73Ò'vR#à¢Ç7â6Æ73Ò&F—Fr‡¢#äD’"+r’ó’Øj’+riÚŞ[yâ(i"K˜Î™XsÂ÷7ãà¢Æƒ#îÈIÎÙ‹É˜Ë
-‚Â«{ºjÎ«:É«ÊNÉËÎºÃÂöƒ#à ¢ÇF&ÆR6Æ73Ò'FÂ#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#îÉXNËšƒÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÈIÎÙ‹‚Š[şk™b’ÉXNËš‚È+ËSÂöF—cà¢ÆF—b6Æ73Ò&â#î»Ê	Ì+~ÈhÎÊ	ÂÂ¸º«YâÈ*Î¹èÂÊÉØÈ¹Î«BÂØøÊx¹ÛÂØëÉX‚â«ÊÈ*ÎÊxBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã£Æ'"óî(	3£3Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÙxØÊÊxÉyk+>YØ®Šr’É‰²«ºjÃÂöF—cà¢ÆF—b6Æ73Ò&â#îÙ¸NËšŞÉÈNØ9RÙYÎ»
-»	^ºËÎ«Hœ+~É™^È»Êx»hËB’â«‹¸YÙ(Œ+~Ë
-‚«ZÎ«+ÒãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã#£Æ'"óî(	33£SÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÊ	ÈºÂ+r¸[Ë
-È¹Ş¸»’»;Ê	{»şˆËnšIXèR“ÂöF—cà¢ÆF—b6Æ73Ò&â#îx^™©‹zòÙHÎ¹é«{ÈºÒÉˆÉØÈ*Â»
-º›B’âÙ¸Ê	ÎØk^¸ºÜ+~»h«Ø>È8É«âNÉÛ‚Ê(ÎÈIÒÉzÎÉÊãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãC£Æ'"óî(	3c£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÉˆÉØÈ*Âx^™©Zû¢’²»˜N¹é»H’š9îiÚ^[;“ÂöF—cà¢ÆF—b6Æ73Ò&â#ãÇ7â6Æ73Ò'v&â#î)ªºËNº8ÎÊxºxÂÉÈNËr~iÚŞ[yîx^™©š9îiÚ^[;rÈ*ÎÊNÉˆÉ[ÒÙXNÈ‰ƒÂ÷7ãâ+r¸»ÉÛÂ»h«+~Ê;ÎºyÊ«‹ºzNÊxB+rs£3(	3s£3âÉÛÎ»hÉŠNº[Nºx’ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãc£3Æ'"óî(	3ƒ£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÙZŞÊÉ«(i"É«ÊBÉÛN¸ù“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÊNÈK‚Ë
-¹ø’É[Òãã^È¹Î«BÊy+~»hºª¸¹‚ØëÉÙ‚’âÊ¸XÊB¸øNË
-’ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#îÊ¸XÆ'"óîËHÉèSÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#äFö6·6–FRÙ‹ØYBË+NØÎÉÛ‚ØÊ»ºjÂÈªNÉÈNØ«‚“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÉ«ÊB«+Ş«H«ZÂÉX‚âÊy¹«:Ê¸X+~É[Î«+ÒÈ+Ë^ÉËÎºÂãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã“£3Æ'"óî(	3#£3Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÉ«ÊBÈIÎËRŠ[şjR’É[Î«+ÓÂöF—cà¢ÆF—b6Æ73Ò&â#îºËÎÉÙ‚ºxÉØBÙYÉÛN¹ÛÎÉÛNØ«‚âÆ#î«+Ş«H«ZÂÈ‰»	RÒÉéÉÊÉêÎÉè^ÉêSÂö#âÉ[Î«Bs£3(	3##£3’ãÂöF—cãÂ÷FCãÂ÷G#à¢Â÷F&ÆSà ¢ÆF—b6Æ73Ò&fö÷FW"#äD’"+rÙZŞÊÉ«(i"É«ÊB+r2òSÂöF—cà£Â÷6V7F–öãà £ÂÒÒ)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YtRB+rD’2²D’B)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YÒÓà£Ç6V7F–öâ6Æ73Ò'vR#à¢Ç7â6Æ73Ò&F—Fr6‚#äD’2+r’ó#ÉÛÂ’+rK˜Î™Xr(i"Kˆ®k[sÂ÷7ãà¢Æƒ#îÉ«ÊBÉXNËš‚+rÈ8ÙYÉÛNÉÙ‚»
-CÂöƒ#à ¢ÇF&ÆR6Æ73Ò'FÂ#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãƒ£Æ'"óî(	3“£3Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÉ«ÊBÉXNËš‚È+ËSÂöF—cà¢ÆF—b6Æ73Ò&â#î«H«I«	ÒÉŠN«‹ÊBÂºËÎÉX«	Â¸(ÊÉªÙYÂºËÎ«‹‚âÈ*ÎÊxB»*ÈªNØ«‚ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã£Æ'"óî(	3£CSÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÉ«ÊB(i"È8ÙYÉÛBÉÛN¸ù“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÊNÈK‚Ë
-¹ø’É[Òã^È¹Î«BâÙ‹ØYBÉYî«˜ÎÊxÙ™È«’ÉxnÉÛBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãC£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÙÉÛBÙ‹ØYB¸ºNÙË
-ÉŠB’Ë+NØÎÉÛƒÂöF—cà¢ÆF—b6Æ73Ò&â#îÊyºxÂ¹«:»	NºÂËiÎ»	Â(	BØ»ÉyNÊhØÊÉÛBÙ‹ØYB¸øN»;N«hÂãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãC£3Æ'"óî(	3S£#Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâØ»ÉyNÊhØÊyKZÙYØ¢“ÂöF—cà¢ÆF—b6Æ73Ò&â#îÙ‹ØYB¸øN»;N«hÂâÈIŞ«:ºË‚«:ºª’ÉXNØ«Ø8É«B(	B«
-N¹úÎºjÌ+~«;^»
-œ+~«‹¸YÙ(‚ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãS£CÆ'"óî(	3c£CÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÉˆÉ¹‹¾YºÒ’+rÈKÙšºÉ‚Yøî™¨Ş[©’“ÂöF—cà¢ÆF—b6Æ73Ò&â#ï	ù©R¹IN¹IB^»hBâÇ7â6Æ73Ò'v&â#î)ªÊ	^É¹nÈ¹ÂÊBÉè^Éê\+~É¹BÙËNºËL+~ÈºNº¨RÉˆÉ[ÓÂ÷7ãââ¸)ÎÈ;’È:NÉŠNº»	NÉŠL+~«:ºª’ãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãs£Æ'"óî(	3ƒ£#Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÙ¸ùºûÈŠ«HkZnK‰Î{èîiÊşšhl+tÔ“ÂöF—cà¢ÆF—b6Æ73Ò&â#ï	ù©R¹IN¹IB»hBâÉêR¸ˆN»*‚ÈJN«8L+~«	^»8»{âºzNÉÛÂ£(	3#£â«H¹èÂÙ¸B¸øN»;B^»hBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ãƒ£3Æ'"óî(	3#£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâÊ¸X+ri™şkX[B»*ÉÛNÊy^¸ÙSÂöF—cà¢ÆF—b6Æ73Ò&â#ãÆ#îºûÈ©¹êÒÈªNØ8Âö#âÉŠNºjÎ«ZÎÉÛBâº:ÉéÊØÉÛBâÇ7â6Æ73Ò'v&â#îÊNÙ™BÈ*ÎÊNÉˆÉ[ÒÙXNÈ‰ƒÂ÷7ãâãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã#£Æ'"óî(	3#£CÂ÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#ãÇ7â6Æ73Ò'7F"#î)ˆSÂ÷7ãâº:ÉéÊØÉÛB™˜nZënY‹B’É[Î«+ÓÂöF—cà¢ÆF—b6Æ73Ò&â#îÙ¸ù’ÈªNË›NÉÛN¹ÛÎÉÛ‚âØøÊxÈ+ËRÂÉzÎÙh’ºxÊxºx’È*ÎÊxBãÂöF—cãÂ÷FCãÂ÷G#à¢ÇG#ãÇFB6Æ73Ò'F–ÖR#ã#£Æ'"óî(	3##£Â÷FCãÇFB6Æ73Ò&&öG’#à¢ÆF—b6Æ73Ò'#îÉÛÎÉ¹N«IÈKÎØK+rÙxºx‚y¹.ššÂ’È{ÎÙYÂöF—cà¢ÆF—b6Æ73Ò&â#ï	ù©R¹IN¹IB^»hBÙ‹ØYB«{ÎË)‚’â«;ÎÉÛÌ+~«NÈ¹Ü+~«‹¸YÙ(‚âÉXÎºjÎØéÉÛB«+Ê	Â(i"Ù‹ØYB»;^«xãÂöF—cãÂ÷FCãÂ÷G#à¢Â÷F&ÆSà ¢ÆF—b7G–ÆSÒ&†V–v‡C£fÖÒ#ãÂöF—cà¢Ç7â6Æ73Ò&F—Fr6‚#äD’B+r’ó#É¹B’+r«x«ZÓÂ÷7ãà¢ÆF—b6Æ73Ò&&÷‚#ãÆF—b6Æ73Ò'Bv&â#î)ªS£Ù‹ØYBËiÎ»	Â(i"Ù¸ù«;^ÙZÒ(i"s£SR«x«ZÓÂöF—cà¢ÆF—b6Æ73Ò'2#ã”3sC’Æ#ãs£SSÂö#âÙ¸ù’(i"Ë*ŞÊ;ÂÆ#ã£SÂö#â¸øNË
-’âÉÛNº[‚»˜NÙh’(	BÆ#îÊy+~Ë+NØÎÉXNÉ¸<+~Ë
-¹øÉØÊN¸*»
-BÊH»˜CÂö#ââÈ8»+ÒË
-¹ø’ÊN¸*ÉˆÉ[Ò¸ºNÙË
-ÉŠN(i.«;^ÙZÒÉ[ÒSãc»hB’ãÂöF—cãÂöF—cà ¢ÆF—b6Æ73Ò&fö÷FW"#äD’2È8ÙYÉÛB+rD’B«x«ZÒ+rBòSÂöF—cà£Â÷6V7F–öãà £ÂÒÒ)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YtRR+rÉ©NÉ[Ò)Y)Y)Y)Y)Y)Y)Y)Y)Y)Y)YÒÓà£Ç6V7F–öâ6Æ73Ò'vR#à¢ÆF—b6Æ73Ò&¶–6¶W"#å5TÔÔ%’+rÉ©NÉ[ÒbÊH»˜CÂöF—cà¢Æƒ#îºy¾Êy+rÉˆÉ[Ò+rÊH»˜NºËÃÂöƒ#à ¢ÆF—b6Æ73Ò'6V7F—FÆR#îºy¾ÊySÂöF—cà¢ÇF&ÆR6Æ73Ò&f7G2#à¢ÇG#ãÇFƒäF“Ê¸XÂ÷FƒãÇFCãÆ#îË›NÉŠNÉêRx:NXÊ“Âö#âºx¹ÛÂ«ZÎÉ«NÈ9ŞÈJ+r¸ÈÉX‚Æ#îº:ÉÈBx(›Â“Âö#ãÂ÷FCãÂ÷G#à¢ÇG#ãÇFƒäF“"Ê	ÈºÃÂ÷FƒãÇFCãÆ#î¸[Ë
-È¹Ş¸»’»;Ê	{»şˆËnšIXèR“Âö#âx^™©‹zò+rÙ¸Ê	ÎØk^¸ºÓÂ÷FCãÂ÷G#à¢ÇG#ãÇFƒäF“É[ÎÈ¹ÓÂ÷FƒãÇFCãÆ#î[èK˜^Kº^X˜Ş{è®ˆ(K‹#Âö#âÉi«ÊÎË™‚«»8Ş«(Â“Â÷FCãÂ÷G#à¢ÇG#ãÇFƒäF“2Ê¸XÂ÷FƒãÇFCãÆ#îi™şkX[CÂö#âºûÈ©¹êÒ»*ÉÛNÊy^¸ÙRÊNÙ™NÉˆÉ[Ò“Â÷FCãÂ÷G#à¢Â÷F&ÆSà ¢ÆF—b6Æ73Ò&w&–C""7G–ÆSÒ&Ö&v–â×F÷£VÖÒ#à¢ÆF—b6Æ73Ò&6&B#ãÆƒ3î)ÈRÉˆÉ[ÒÙXNÈ‰ƒÂöƒ3à¢ÇVÂ6Æ73Ò&6†²#à¢ÆÆ“ãÆ#î)ÉB«:ÈhŞË*sSƒ2ƒ’ó‚’(	BÉ˜Nº8ÃÂö#ãÂöÆ“à¢ÆÆ“îÉˆÉØÈ*Â(	BÉÈNËrÈ*ÎÊNÉˆÉ[Ò¸»ÉÛÂ»h«“ÂöÆ“à¢ÆÆ“îÉˆÉ¹(	BÈºNº¨RÈ¹Î«N¸ÈÉˆÉ[ÓÂöÆ“à¢ÆÆ“îi™şkX[B(	BÊNÙ™BÉˆÉ[ÓÂöÆ“à¢ÆÆ“î¸xÎ»HØ9(	BÉÈNËrÉˆÉ[Ò«hÎÉêR“ÂöÆ“à¢ÆÆ“î«;^ÙZÒË
-¹ø’ƒ’ó#S£“ÂöÆ“à¢ÆÆ“î¸øNÈ¹Â«BË
-¹ø’ÙZŞÊÉ«(i.É«ÊN(i.È8ÙYÉÛB“ÂöÆ“à¢Â÷VÃà¢ÂöF—cà¢ÆF—b6Æ73Ò&6&B#ãÆƒ3ï	ùY"É«NÉˆÈ¹Î«B+rÙËNºËCÂöƒ3à¢ÇVÃà¢ÆÆ“ãÆ#îÉˆÉØÈ*ÃÂö#âs£3(	3s£3+rÉˆÉ[ŞÙXNÈ‰‚ºËNº8Â“ÂöÆ“à¢ÆÆ“ãÆ#îÉˆÉ¹Âö#â“£(	3c£3+rÆ#îÉ¹BÙËNºËCÂö#ãÂöÆ“à¢ÆÆ“ãÆ#î¸xÎ»HØ9Âö#âƒ£(	3#£+r*SCÂöÆ“à¢ÆÆ“ãÆ#îÉ«ÊBÈIÎËRÉ[Î«CÂö#âs£3(	3##£3ÂöÆ“à¢ÆÆ“ãÆ#îÙxºxƒÂö#â¸È¹ëRƒ£(	3##£ÂöÆ“à¢Â÷VÃà¢ÂöF—cà¢ÆF—b6Æ73Ò&6&B#ãÆƒ3ï	ù;Øk^Èº+r«+Ê	ÃÂöƒ3à¢ÇVÃà¢ÆÆ“ãÆ#îÉXÎºjÎØéÉÛCÂö#âÙYÎ«ZŞË›N¹9ÂÉ{¸ùœ+~ËjÊCÂöÆ“à¢ÆÆ“ãÆ#åeãÂö#âÙYÎ«ZŞÈIÂºûºjÂÈJNË™ƒÂöÆ“à¢ÆÆ“ãÆ#î«:¸Ù^Êx¸øBš¹[ër“Âö#âeâÉxnÉÛBÊx¸øCÂöÆ“à¢ÆÆ“ãÆ#îÉÈNËsÂö#âÉˆÉ[Ü+~«+Ê	Ì+~É{¹ÛÓÂöÆ“à¢ÆÆ“ãÆ#îÙˆN«ˆ‚*SÂö#âÈhÎÉZ»˜NÈ8Éª“ÂöÆ“à¢Â÷VÃà¢ÂöF—cà¢ÆF—b6Æ73Ò&6&B#ãÆƒ3ï	ù_	ùB»hºª¸¹‚»º
-CÂöƒ3à¢ÇVÃà¢ÆÆ“îÙYº:‚Ù[^ÈºÂ'ã>«;2ÂºËNºjÂ«ˆÊxÂöÆ“à¢ÆÆ“îÉŠNÙ¸BÙ‹ØYB»;^«x+~ÙËNÈ¹ÒÙ™^»;CÂöÆ“à¢ÆÆ“îÉˆÉØÈ*Ì+~É«ÊBÉÛÎ»hÉŠNº[Nºx’Ê;ÎÉÙƒÂöÆ“à¢ÆÆ“îÉ[ÎÈ¹ÎÉê\+~É[ÎÈ¹ŞÉØÈJØ9ÒÈ9Ş¹ëRô²“ÂöÆ“à¢ÆÆ“îÉzÎ«hÌ+~ºËÌ+~Ù™NÉê^ÈºBºûºjÂË«‹«‹ÂöÆ“à¢Â÷VÃà¢ÂöF—cà¢ÂöF—cà ¢ÆF—b6Æ73Ò&fö÷FW"#îÉ©NÉ[Ò+rÉzÎ«hÂNÉÛ‚ÈºNºËÂÊxË‚+rRòSÂöF—cà£Â÷6V7F–öãà £Âö&öG“à£Âö‡FÖÃà 
+<div class="kicker">SHANGHAI Â· HANGZHOU Â· WUZHEN FAMILY TRIP</div>
+<h1>ìƒí•˜ì´ Â· í•­ì €ìš° Â· ìš°ì „<br>ê°€ì¡± ì—¬í–‰ ì¼ì •<small>2026.09.18(ê¸ˆ) - 09.21(ì›”) Â· 3ë°• 4ì¼ Â· 4ì¸</small></h1>
+<div class="sectitle">ì „ì²´ ê²½ë¡œ</div><div style="font-size:15pt;font-weight:800;line-height:1.9;margin-bottom:5mm">ì²­ì£¼ â†’ ìƒí•˜ì´ í‘¸ë™ â†’ í™ì°¨ì˜¤ì—­ â†’ í•­ì €ìš° â†’ ìš°ì „ â†’ ìƒí•˜ì´ â†’ í‘¸ë™ê³µí•­ â†’ ì²­ì£¼</div>
+<div class="sectitle">í•­ê³µ Â· ì¶˜ì¶”í•­ê³µ</div><table class="facts"><tr><th>êµ­ë‚´ ì—°ê²°</th><td>ë™ëŒ€êµ¬ <b>08:52</b> â†’ ì˜¤ì†¡ <b>09:51</b> Â· KTX-ì‚°ì²œ 370 Â· ì²­ì£¼ê³µí•­ ì´ë™</td></tr><tr><th>ê°€ëŠ”í¸</th><td>9/18(ê¸ˆ) ì²­ì£¼ <b>12:05</b> â†’ ìƒí•˜ì´ í‘¸ë™ <b>13:10</b> Â· 9C7050</td></tr><tr><th>ì˜¤ëŠ”í¸</th><td>9/21(ì›”) ìƒí•˜ì´ í‘¸ë™ <b>07:55</b> â†’ ì²­ì£¼ <b>11:05</b> Â· 9C7049</td></tr></table>
+<div class="sectitle">ê³ ì†ì²  Â· ì˜ˆì•½ ì™„ë£Œ</div><table class="facts"><tr><th>G1583</th><td>9/18(ê¸ˆ) ìƒí•˜ì´ í™ì°¨ì˜¤ <b>16:32</b> â†’ í•­ì €ìš°ë™ <b>17:24</b> Â· 04í˜¸ì°¨ 004AÂ·004BÂ·005DÂ·005F Â· ì—¬ê¶Œ ì‹¤ë¬¼ ê°œì°°</td></tr></table>
+<div class="sectitle">ìˆ™ì†Œ Â· ì˜ˆì•½ ì™„ë£Œ</div><div class="box hz"><div class="t">í•­ì €ìš° Â· ì¹˜ìœ„ì— ì›¨ìŠ¤íŠ¸ë ˆì´í¬ í˜¸í…”</div><div class="s">9/18 Â· ëŸ­ì…”ë¦¬ íŒ¨ë°€ë¦¬ ìŠ¤ìœ„íŠ¸ Â· ì„œí˜¸/ë‡Œë´‰íƒ‘ ë°©ë©´</div></div><div class="box wz"><div class="t">ìš°ì „ Â· Dockside Boutique Hotel</div><div class="s">9/19 Â· ê²½ê´€êµ¬ ë‚´ë¶€ íŒ¨ë°€ë¦¬ ìŠ¤ìœ„íŠ¸ Â· ì•¼ê²½ ììœ  ì¬ì…ì¥</div></div><div class="box sh"><div class="t">ìƒí•˜ì´ Â· í‘¸ì´ í˜¸í…” ë‹¤í‘¸ì°¨ì˜¤ì </div><div class="s">9/20 Â· ë“€í”Œë ‰ìŠ¤ íŒ¨ë°€ë¦¬ ìŠ¤ìœ„íŠ¸ Â· ì‹ ì²œì§€/í‹°ì—”ì¦ˆíŒ¡ ê·¼ì²˜</div></div>
+<div class="footer">ìƒí•˜ì´Â·í•­ì €ìš°Â·ìš°ì „ ê°€ì¡± ì—¬í–‰ Â· 1 / 5</div></section>
+<section class="page"><span class="tag hz">DAY 1 Â· 9/18 ê¸ˆ Â· í•­ì €ìš°</span><h2>ë„ì°© Â· í•­ì €ìš°ì˜ ë°¤</h2><table class="tl"><tr><td class="time">08:52-09:51</td><td><div class="p">KTX-ì‚°ì²œ 370 Â· ë™ëŒ€êµ¬ â†’ ì˜¤ì†¡</div><div class="n">7í˜¸ì°¨ ì¼ë°˜ì‹¤, ì¢Œì„ 2AÂ·2B. íƒ€ëŠ”ê³³ì€ ì „ê´‘íŒ ì¬í™•ì¸.</div></td></tr><tr><td class="time">12:05-13:10</td><td><div class="p">ì²­ì£¼ â†’ ìƒí•˜ì´ í‘¸ë™ê³µí•­ Â· 9C7050</div><div class="n">ì…êµ­Â·ìˆ˜í•˜ë¬¼ í›„ 14ì‹œê²½ ê³µí•­ ì¶œë°œ ëª©í‘œ.</div></td></tr><tr><td class="time">14:00-15:00</td><td><div class="p">í‘¸ë™ê³µí•­ â†’ í™ì°¨ì˜¤ì—­</div><div class="n">Airport Link ì•½ 40ë¶„. í™ì°¨ì˜¤ì—­ì—ì„œ ê³ ì†ì²  í™˜ìŠ¹.</div></td></tr><tr><td class="time">15:00-16:00</td><td><div class="p">í™ì°¨ì˜¤ì—­ ì ì‹¬</div><div class="n">ìƒ¤ì˜¤ë¡±ë°”ì˜¤, ì™„íƒ•, Luckin Coffee ë“± ê°€ë³ê²Œ.</div></td></tr><tr><td class="time">16:32-17:24</td><td><div class="p">G1583 í™ì°¨ì˜¤ â†’ í•­ì €ìš°ë™</div><div class="n">ì˜ˆì•½ ì™„ë£Œ. í•­ì €ìš°ë™ ë„ì°© í›„ í˜¸í…”ê¹Œì§€ íƒì‹œ 20-30ë¶„.</div></td></tr><tr><td class="time">ì €ë…</td><td><div class="p">í˜¸í…” ì²´í¬ì¸ Â· ë‡Œë´‰íƒ‘ ì•¼ê²½ Â· ì¹´ì˜¤ì¥ ì €ë…</div><div class="n">ë‡Œë´‰íƒ‘ 08:00-20:00, ì•½ Â¥40, ì—˜ë¦¬ë² ì´í„°. í”¼ê³¤í•˜ë©´ ì•¼ì‹œì¥Â·ì•¼ì‹ì€ ìƒëµ.</div></td></tr></table><div class="footer">DAY 1 Â· 2 / 5</div></section>
+<section class="page"><span class="tag hz">DAY 2 Â· 9/19 í†  Â· í•­ì €ìš° â†’ ìš°ì „</span><h2>ì„œí˜¸ì™€ ìš°ì „ ì•¼ê²½</h2><table class="tl"><tr><td class="time">ì•„ì¹¨</td><td><div class="p">ì„œí˜¸ ì•„ì¹¨ ì‚°ì±…</div><div class="n">í‰ì§€ ìœ„ì£¼ë¡œ ì²œì²œíˆ ê±·ê³  ê°€ì¡± ì‚¬ì§„ ì´¬ì˜.</div></td></tr><tr><td class="time">10:00-11:30</td><td><div class="p">í—ˆíŒ¡ì§€ì— ì‚°ì±…</div><div class="n">í›„ì¹­ìœ„íƒ•, ì™•ì‹±ì§€ ë¶€ì±„, ê¸°ë…í’ˆê³¼ ì°¨ êµ¬ê²½.</div></td></tr><tr><td class="time">12:00-13:15</td><td><div class="p">ë…¹ì°¨ì‹ë‹¹ ë³¸ì  ì ì‹¬</div><div class="n">í›ˆì œ í†µë‹­êµ¬ì´, ë¶ˆê½ƒìƒˆìš°, ë©´ë°”ì˜¤ìœ í›  ì¶”ì²œ.</div></td></tr><tr><td class="time">14:00-16:00</td><td><div class="p">ì˜ì€ì‚¬ + ë¹„ë˜ë´‰</div><div class="n"><span class="warn">ìœ„ì±— ì‚¬ì „ì˜ˆì•½ í•„ìˆ˜.</span> 07:30-17:30, ì¼ë¶€ ì˜¤ë¥´ë§‰ ì£¼ì˜.</div></td></tr><tr><td class="time">16:30-18:00</td><td><div class="p">í•­ì €ìš° â†’ ìš°ì „ ì´ë™</div><div class="n">ì „ì„¸ ì°¨ëŸ‰ ì•½ 1-1.5ì‹œê°„. ì§ê³¼ ë¶€ëª¨ë‹˜ í¸ì˜ ìš°ì„ .</div></td></tr><tr><td class="time">19:30-21:30</td><td><div class="p">ìš°ì „ ì„œì±… ì•¼ê²½</div><div class="n">ìˆ™ë°• ì‹œ ììœ  ì¬ì…ì¥. ì•¼ê°„ 17:30-22:30.</div></td></tr></table><div class="footer">DAY 2 Â· 3 / 5</div></section>
+<section class="page"><span class="tag sh">DAY 3 Â· 9/20 ì¼ Â· ìš°ì „ â†’ ìƒí•˜ì´</span><h2>ìš°ì „ ì•„ì¹¨ Â· ìƒí•˜ì´ì˜ ë°¤</h2><table class="tl"><tr><td class="time">08:00-09:30</td><td><div class="p">ìš°ì „ ì•„ì¹¨ ì‚°ì±…</div><div class="n">ê´€ê´‘ê°ì´ ì˜¤ê¸° ì „ ë¬¼ê¸¸ ì‚°ì±…. ì‚¬ì§„ ë² ìŠ¤íŠ¸ ì‹œê°„ëŒ€.</div></td></tr><tr><td class="time">10:00-11:45</td><td><div class="p">ìš°ì „ â†’ ìƒí•˜ì´ ì´ë™</div><div class="n">ì „ì„¸ ì°¨ëŸ‰ ì•½ 1.5ì‹œê°„. í˜¸í…” ì•ê¹Œì§€ ì´ë™.</div></td></tr><tr><td class="time">14:00</td><td><div class="p">í‘¸ì´ í˜¸í…” ë‹¤í‘¸ì°¨ì˜¤ ì²´í¬ì¸</div><div class="n">ì§ë§Œ ë‘ê³  í‹°ì—”ì¦ˆíŒ¡ìœ¼ë¡œ ì´ë™.</div></td></tr><tr><td class="time">14:30-15:20</td><td><div class="p">í‹°ì—”ì¦ˆíŒ¡</div><div class="n">ì„ê³ ë¬¸ ê³¨ëª©, ê³µë°©, ê°¤ëŸ¬ë¦¬, ê¸°ë…í’ˆ.</div></td></tr><tr><td class="time">15:40-16:40</td><td><div class="p">ì˜ˆì› Â· ì„±í™©ë¬˜</div><div class="n"><span class="warn">16ì‹œ ì „ ì…ì¥, ì›”ìš”ì¼ íœ´ë¬´, ì‹¤ëª… ì‹œê°„ëŒ€ ì˜ˆì•½.</span></div></td></tr><tr><td class="time">17:00-18:20</td><td><div class="p">í‘¸ë™ë¯¸ìˆ ê´€</div><div class="n">ë§¤ì¼ 10:00-21:00. ê´€ëŒ í›„ ë£¨ìì­ˆì´ë¡œ ì´ë™.</div></td></tr><tr><td class="time">18:30-20:00</td><td><div class="p">Sheng Yong Xing ë² ì´ì§•ë•</div><div class="n">ë¯¸ìŠë­ 1ìŠ¤íƒ€. ì „í™” ì‚¬ì „ì˜ˆì•½ í•„ìˆ˜.</div></td></tr><tr><td class="time">20:00-22:00</td><td><div class="p">ë£¨ìì­ˆì´ ì•¼ê²½ Â· ì¼ì›”ê´‘ì„¼í„° Â· í—ˆë§ˆ ì‡¼í•‘</div><div class="n">ë§ˆì§€ë§‰ ê°€ì¡± ì‚¬ì§„, ê°„ì‹ê³¼ ê¸°ë…í’ˆ ì‡¼í•‘ í›„ í˜¸í…” ë³µê·€.</div></td></tr></table><div class="box"><div class="t warn">DAY 4 Â· 9/21 ì›” Â· ê·€êµ­</div><div class="s">05:00 í˜¸í…” ì¶œë°œ â†’ 06:00 ì „í›„ í‘¸ë™ê³µí•­ ë„ì°© â†’ 07:55 í‘¸ë™ ì¶œë°œ â†’ 11:05 ì²­ì£¼ ë„ì°©. ì§Â·ì²´í¬ì•„ì›ƒÂ·ì°¨ëŸ‰ì€ ì „ë‚  ë°¤ ì¤€ë¹„.</div></div><div class="footer">DAY 3-4 Â· 4 / 5</div></section>
+<section class="page"><div class="kicker">SUMMARY</div><h2>ì˜ˆì•½ Â· ìš´ì˜ì‹œê°„ Â· ì¤€ë¹„ë¬¼</h2><div class="grid2"><div class="card"><h3>ì˜ˆì•½ í•„ìˆ˜</h3><ul><li>ê³ ì†ì²  G1583 Â· ì™„ë£Œ</li><li>ì˜ì€ì‚¬Â·ë¹„ë˜ë´‰ Â· ìœ„ì±— ì˜ˆì•½</li><li>ì˜ˆì› Â· ì‹¤ëª… ì‹œê°„ëŒ€ ì˜ˆì•½</li><li>Sheng Yong Xing Â· ì „í™” ì˜ˆì•½</li><li>ë„ì‹œ ê°„ ì°¨ëŸ‰ê³¼ ê³µí•­ ì°¨ëŸ‰ ì˜ˆì•½</li></ul></div><div class="card"><h3>ìš´ì˜ì‹œê°„</h3><ul><li>ì˜ì€ì‚¬ 07:30-17:30</li><li>ì˜ˆì› 09:00-16:30 Â· ì›” íœ´ë¬´</li><li>ë‡Œë´‰íƒ‘ 08:00-20:00 Â· ì•½ Â¥40</li><li>ìš°ì „ ì„œì±… ì•¼ê°„ 17:30-22:30</li></ul></div><div class="card"><h3>ì¤‘êµ­ ì—¬í–‰ ì¤€ë¹„</h3><ul><li>ì•Œë¦¬í˜ì´ í•œêµ­ì¹´ë“œ ì—°ë™</li><li>ìœ„ì±— ì„¤ì¹˜ì™€ ë³¸ì¸ í™•ì¸</li><li>VPN, ê³ ë•ì§€ë„, ë²ˆì—­ ì•±</li><li>ì—¬ê¶Œ ì‹¤ë¬¼ 4ì¸ ì§€ì°¸</li><li>ì†Œì•¡ í˜„ê¸ˆê³¼ ë³´ì¡°ë°°í„°ë¦¬</li></ul></div><div class="card"><h3>ë¶€ëª¨ë‹˜ ë°°ë ¤</h3><ul><li>í•˜ë£¨ í•µì‹¬ 2-3ê³³ë§Œ í™•ì‹¤íˆ</li><li>ì˜¤í›„ íœ´ì‹ê³¼ íƒì‹œ ì´ë™ ìš°ì„ </li><li>ì˜¤ë¥´ë§‰Â·ê³„ë‹¨ ë§ì€ ê³³ì€ ì§§ê²Œ</li><li>ì•¼ì‹œì¥Â·ì•¼ì‹ì€ ì»¨ë””ì…˜ ë”°ë¼ ìƒëµ</li></ul></div></div><div class="sectitle">ì „ì²´ ë™ì„ </div><div style="font-size:15pt;font-weight:800;line-height:2">í‘¸ë™ê³µí•­ â†’ í™ì°¨ì˜¤ì—­ â†’ í•­ì €ìš° â†’ ìš°ì „ â†’ ìƒí•˜ì´ â†’ í‘¸ë™ê³µí•­</div><div class="footer">ìš”ì•½ Â· 5 / 5</div></section>
+</body>
+</html>
